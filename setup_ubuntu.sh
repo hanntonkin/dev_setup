@@ -44,7 +44,9 @@ if [ -d '/opt/sublime_text' ];
 	echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 	sudo apt-get update
 	sudo apt-get install sublime-text
+	cp /usr/share/applications/sublime_text.desktop ~/.local/share/applications/
 #install sublime https://gist.github.com/simonewebdesign/8507139
+
 fi
 
 if [ -f '/usr/bin/mark-my-words' ]; then
