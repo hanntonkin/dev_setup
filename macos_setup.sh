@@ -28,6 +28,10 @@ fi
 
 # make Jekyll work locally
 
+
+
+# https://medium.freecodecamp.org/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38
+# https://medium.com/@mrkdsgn/install-zsh-and-oh-my-zsh-on-osx-10-11-el-capitan-cfaa0ebb97dc
 #iTerm2
 if [ -d '/Applications/iTerm.app' ]; then
 	echo "iTerm2 installed";
@@ -42,9 +46,11 @@ if [ -L '/usr/local/bin/zsh' ]; then
 	echo "Zsh installed";
 else
 	echo "Zsh not found";
-	brew install zsh zsh-completions
+	brew install zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	# sudo -s 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh
+	brew install tree
+
 
 	#install powerfont
 	git clone https://github.com/powerline/fonts.git --depth=1
@@ -54,11 +60,12 @@ else
 	rm -rf fonts
 
 	# bring in my custom dotfile
-	cp -f zshrc ~/.zshrc 
+	cp -f zshrc ~/.zshrc
+	source ~/.zshrc 
 	# Set iterm profile color to solarized dark
 	# Open ITerm2 > Preferences > Profiles > Text > Change Font and set it to something that has “for Powerline”. I’m choosing “Meslo LG DZ for Powerline” font.
 
-	brew install tree
+	
 fi
 
 
