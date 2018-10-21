@@ -25,11 +25,6 @@ else
 fi
 
 
-
-# make Jekyll work locally
-
-
-
 # https://medium.freecodecamp.org/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38
 # https://medium.com/@mrkdsgn/install-zsh-and-oh-my-zsh-on-osx-10-11-el-capitan-cfaa0ebb97dc
 #iTerm2
@@ -105,8 +100,14 @@ fi
 # Word, excel, powerpoint => mas not working now
 # Matlab
 
-# Mendeley Desktop.app
-# brew cask install mendeley
+
+#Mendeley
+if [ -d '/Applications/Mendeley Desktop.app' ]; then
+	echo "Mendeley installed";
+else
+	echo "Mendeley not found?";
+	# brew cask install mendeley
+fi
 
 
 
@@ -121,6 +122,13 @@ fi
 
 
 #Dropbox
+if [ -d '/Applications/Dropbox.app' ]; then
+	echo "Dropbox installed";
+else
+	echo "Dropbox not found";
+	# brew cask install --appdir="/Applications" dropbox
+	
+fi
 
 echo ""
 echo "COMMUNICATION -----------------------------"
