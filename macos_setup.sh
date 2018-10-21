@@ -185,9 +185,16 @@ echo ""
 # sudo scutil --set LocalHostName "hanns-mac"
 
 # Set Desktop as the default location for new Finder windows
-# For other paths, use `PfLo` and `file:///full/path/here/`
-defaults write com.apple.finder NewWindowTarget -string "PfDe"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+# New window target
+# Computer     : `PfCm`
+# Volume       : `PfVo`
+# $HOME        : `PfHm`
+# Desktop      : `PfDe`
+# Documents    : `PfDo`
+# All My Files : `PfAF`
+# Other…       : `PfLo`
+defaults write com.apple.finder NewWindowTarget -string 'PfHm'
+#defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
 
 
