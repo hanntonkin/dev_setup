@@ -1,0 +1,9 @@
+Host *
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/id_rsa
+
+Host falcon
+ HostName falcon-f2.local
+ User hann
+ Port 22

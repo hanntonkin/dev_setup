@@ -27,7 +27,7 @@ Most of my work are on Ubuntu 16.04. Install here
 
 
 * ROS
-* 
+
 ```
 . dev_setup/ros/install_ros.sh
 ```
