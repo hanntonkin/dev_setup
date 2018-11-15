@@ -12,6 +12,13 @@ mv -f vim-colorschemes/colors/ .vim
 rm -rf vim-colorschemes
 
 cp -f ~/dev_setup/dotfiles/vimrc $HOME/.vimrc
-echo "open vim and run  :PluginInstall"
 
-echo "cd ~/.vim/bundle/YouCompleteMe   python install.py"
+cd ~/.vim/bundle/YouCompleteMe
+
+echo "================================"
+
+echo "Extra steps: "
+
+echo "1) open vim and run  :PluginInstall"
+
+echo "2) cd ~/.vim/bundle/YouCompleteMe   and run ./install.py (install Cmake and python if needed) "
