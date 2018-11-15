@@ -36,6 +36,16 @@ else
 	sudo apt-get install -y vim 
 fi
 
+if [-f '~/.zshrc']; then
+	echo "zsh installed";
+else
+	sudo apt install git-core zsh;
+	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
+	sudo apt install fonts-powerline;
+fi
+
+
+
 if [ -d '/opt/sublime_text' ]; 
   then 
 	echo "Sublime Text 3 installed";
