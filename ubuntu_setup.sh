@@ -39,9 +39,13 @@ fi
 if [-f '~/.zshrc']; then
 	echo "zsh installed";
 else
-	sudo apt install git-core zsh;
-	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
-	sudo apt install fonts-powerline;
+	# sudo apt install -y git-core zsh;
+	# sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
+	# sudo apt install fonts-powerline;
+	
+	# bring in my custom dotfile
+	cp -f dotfiles/zshrc_ubuntu ~/.zshrc
+	source ~/.zshrc 
 fi
 
 
