@@ -36,7 +36,7 @@ else
 	sudo apt-get install -y vim 
 fi
 
-if [-f '~/.zshrc']; then
+if [ -f '~/.zshrc']; then
 	echo "zsh installed";
 else
 	sudo apt install -y git-core zsh;
