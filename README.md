@@ -12,7 +12,7 @@ git clone git@github.com:hanntonkin/dev_setup.git
 Most of my work are on Ubuntu 16.04. Install here
 
 ```
-. dev_setup/setup_ubuntu.sh
+. dev_setup/ubuntu_setup.sh
 ```
 
 * System tools
@@ -26,15 +26,25 @@ Most of my work are on Ubuntu 16.04. Install here
 	- [Mark my works]() for markdown editing
 
 
+* ROS
+
+```
+. dev_setup/ros/install_ros.sh
+```
+* Git and [github ssh](https://help.github.com/articles/connecting-to-github-with-ssh/)
+
+```
+. dev_setup/git_setup.sh
+```
+
+
+
+
 ## 2) MacOS
 
-## 3) ROS
 ```
-. dev_setup/install_ros.sh
+./dev_setup/macos_setup.sh
 ```
-## 4) Git and Github setup
-```
-. dev_setup/setup_git.sh
-```
-* [ssh setup](https://help.github.com/articles/connecting-to-github-with-ssh/)
-ticles/connecting-to-github-with-ssh/)ssh/)
+
+* MS office
+* Matlab
