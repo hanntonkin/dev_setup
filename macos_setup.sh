@@ -55,7 +55,7 @@ else
 	rm -rf fonts
 
 	# bring in my custom dotfile
-	cp -f zshrc ~/.zshrc
+	cp -f dotfiles/zshrc ~/.zshrc
 	source ~/.zshrc 
 	# Set iterm profile color to solarized dark
 	# Open ITerm2 > Preferences > Profiles > Text > Change Font and set it to something that has “for Powerline”. I’m choosing “Meslo LG DZ for Powerline” font.
