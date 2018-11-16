@@ -36,22 +36,22 @@ else
 	sudo apt-get install -y vim 
 fi
 
-if [ -f '~/.zshrc']; then
-	echo "zsh installed";
-else
-	#sudo apt install -y git-core zsh;
-	#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
-	# sudo apt install fonts-powerline;
+# if [ -f '~/.zshrc']; then
+# 	echo "zsh installed";
+# else
+# 	#sudo apt install -y git-core zsh;
+# 	#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
+# 	# sudo apt install fonts-powerline;
 	
-	cd ~/.oh-my-zsh/custom/plugins
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting
-	git clone https://github.com/zsh-users/zsh-autosuggestions
+# 	cd ~/.oh-my-zsh/custom/plugins
+# 	git clone https://github.com/zsh-users/zsh-syntax-highlighting
+# 	git clone https://github.com/zsh-users/zsh-autosuggestions
 	
 
-	# bring in my custom dotfile
-	cp -f dotfiles/zshrc_ubuntu ~/.zshrc
-	source ~/.zshrc 
-fi
+# 	# bring in my custom dotfile
+# 	cp -f ~/dev_setup/dotfiles/zshrc_ubuntu ~/.zshrc
+# 	source ~/.zshrc 
+# fi
 
 
 
