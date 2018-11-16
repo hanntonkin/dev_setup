@@ -1,0 +1,12 @@
+{
+	"added_words":
+	[
+		"quadrotor"
+	],
+	"font_size": 12,
+	"hide_minimap": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	]
+}
