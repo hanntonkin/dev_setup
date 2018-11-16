@@ -85,6 +85,7 @@ else
 	echo "Try to install sublime now";
 	# brew cask install --appdir="/Applications" sublime-text
 	# sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+	# ~/Library/Application Support/Sublime Text 3/Packages/User
 fi
 
 #Latex
