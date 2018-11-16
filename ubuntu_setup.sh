@@ -36,6 +36,7 @@ else
 	sudo apt-get install -y vim 
 fi
 
+
 # if [ -f '~/.zshrc']; then
 # 	echo "zsh installed";
 # else
@@ -52,6 +53,7 @@ fi
 # 	cp -f ~/dev_setup/dotfiles/zshrc_ubuntu ~/.zshrc
 # 	source ~/.zshrc 
 # fi
+
 
 
 
