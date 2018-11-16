@@ -21,4 +21,4 @@ echo "Extra steps: "
 
 echo "1) open vim and run  :PluginInstall"
 
-echo "2) cd ~/.vim/bundle/YouCompleteMe   and run ./install.py (install Cmake and python if needed) "
+echo "2) cd ~/.vim/bundle/YouCompleteMe   and run ./install.py (install cmake and python-dev if needed) "
