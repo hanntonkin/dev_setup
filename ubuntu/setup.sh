@@ -18,7 +18,7 @@ echo '----- SYSTEM TOOLS -------------------------'
 if [ -f '/usr/bin/curl' ]; then
 	echo "Curl installed";
 else
-	sudo apt-get install -y curl 
+	sudo apt-get install -y curl
 fi
 
 if [ -L '/usr/bin/terminator' ]; then
@@ -30,6 +30,10 @@ else
 fi
 # write force_color_prompt=yes to .bashrc
 
+#https://thishosting.rocks/how-to-enable-ssh-on-ubuntu/
+#https://scotch.io/tutorials/how-to-create-an-ssh-shortcut
+sudo apt-get install openssh-server -y
+# setup config file
 
 
 #==================================================================
@@ -39,7 +43,7 @@ echo '----- PRODUCTIVITY -------------------------'
 if [ -L '/usr/bin/vim' ]; then
 	echo "Vim installed";
 else
-	sudo apt-get install -y vim 
+	sudo apt-get install -y vim
 fi
 
 
@@ -49,22 +53,22 @@ fi
 # 	#sudo apt install -y git-core zsh;
 # 	#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
 # 	# sudo apt install fonts-powerline;
-	
+
 # 	cd ~/.oh-my-zsh/custom/plugins
 # 	git clone https://github.com/zsh-users/zsh-syntax-highlighting
 # 	git clone https://github.com/zsh-users/zsh-autosuggestions
-	
+
 
 # 	# bring in my custom dotfile
 # 	cp -f ~/dev_setup/dotfiles/zshrc_ubuntu ~/.zshrc
-# 	source ~/.zshrc 
+# 	source ~/.zshrc
 # fi
 
 
 
 
-if [ -d '/opt/sublime_text' ]; 
-  then 
+if [ -d '/opt/sublime_text' ];
+  then
 	echo '-- Sublime Text 3 installed -----';
   else
   	echo '-- Install Sublime Text -----'
@@ -95,7 +99,7 @@ echo '----- COMMUNICATION -------------------------'
 if [ -f '/usr/bin/google-chrome' ]; then
 	echo "Mark-my-words installed";
 else
-	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 	sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 	sudo apt-get update
 	sudo apt-get install -y google-chrome-stable
