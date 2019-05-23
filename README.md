@@ -26,9 +26,7 @@ with a lot of great features compared to the default terminal.
 
 ### Productivity
 
-#### [Sublime Text](https://www.sublimetext.com/)
-as the main text editor.
-
+* [Sublime Text](https://www.sublimetext.com/) as the main text editor.
 + Install Sublime 3: . dev_setup/ubuntu/install_sublime_text.sh
 + Package Control: Command Palette (ctrl/cmd + shift + p), Install Package Control
 + Install packages: Command Palette, Install Package: Predawn, Material Theme, BracketHighlighter, Anaconda
@@ -37,15 +35,13 @@ as the main text editor.
 
 
 
-#### [Vim]()
-for fast editing when ssh to.
-#### [Mark my works]()
-for markdown editing
+* [Vim]() for fast editing when ssh to.
+* [Mark my works]() for markdown editing
 
 
 ### ROS
 
-ROS kinetic
+Install ROS kinetic
 ```
 . dev_setup/ros/install_ros.sh
 ```
