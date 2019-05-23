@@ -125,6 +125,11 @@ sources ~/.bashrc
 sudo apt autoremove -y
 
 
+#alt-tab
+#https://askubuntu.com/questions/818449/ubuntu-16-04-alt-tab-not-working-properly
+
+
+
 #==================================================================
 #      			      REFERENCES
 
