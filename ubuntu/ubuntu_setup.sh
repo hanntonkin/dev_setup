@@ -67,6 +67,7 @@ if [ -d '/opt/sublime_text' ];
 	sudo apt-get install sublime-text
 	cp /usr/share/applications/sublime_text.desktop ~/.local/share/applications/
 #install sublime https://gist.github.com/simonewebdesign/8507139
+#curl -L git.io/sublimetext | sh
 
 fi
 
