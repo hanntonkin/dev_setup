@@ -21,6 +21,7 @@ fi
 if [ -L '/usr/bin/terminator' ]; then
 	echo "Terminator installed";
 else
+	echo "Terminator installed";
 	sudo apt-get install -y terminator
 fi
 # write force_color_prompt=yes to .bashrc

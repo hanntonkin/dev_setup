@@ -1,46 +1,67 @@
 # Development Environment Setup
 
-Collection of the setup of my work machine.
+A collection of my favorite settings.
 
 ```
 sudo apt install -y git
 git clone git@github.com:hanntonkin/dev_setup.git
 ```
 
-## 1) Ubuntu
+## 1 -  Ubuntu
 
 Most of my work are on Ubuntu 16.04. Install here
 
 ```
-. dev_setup/ubuntu_setup.sh
+sudo ./dev_setup/ubuntu/setup.sh
 ```
 
-* System tools
-	- [Terminator]() with a lot of great features compared to the default terminal. 
-	- [Zsh]() 
-	- [OpenSSH]()
+### System tools
 
-* Productivity
-	- [Sublime Text]() as the main text editor.
-	- [Vim]() for fast editing when ssh to.
-	- [Mark my works]() for markdown editing
+#### [Terminator]()
+with a lot of great features compared to the default terminal.
+
+#### [Zsh]()
+
+#### [OpenSSH]()
+
+### Productivity
+
+#### [Sublime Text]()
+as the main text editor.
+
+* Install Sublime 3
+```
+. dev_setup/ubuntu/install_sublime_text.sh
+```
+* Install sublime packages:
+
++ Install: Command Palette (ctrl/cmd + shift + p), Install Package Control
++ Use: Command Palette, Install Package: Predawn, Material Theme, BracketHighlighter, Anaconda
++ Setting: sudo ./dev_setup/ubuntu/setup_sublime.sh
 
 
-* ROS
 
+
+#### [Vim]()
+for fast editing when ssh to.
+#### [Mark my works]()
+for markdown editing
+
+
+### ROS
+
+ROS kinetic
 ```
 . dev_setup/ros/install_ros.sh
 ```
-* Git and [github ssh](https://help.github.com/articles/connecting-to-github-with-ssh/)
+### Git and [github ssh](https://help.github.com/articles/connecting-to-github-with-ssh/)
 
 ```
-. dev_setup/git_setup.sh
+. dev_setup/ubuntu/setup_git.sh
 ```
 
 
-
-
-## 2) MacOS
+## 2 - MacOS
 
 ```
 ./dev_setup/macos_setup.sh
