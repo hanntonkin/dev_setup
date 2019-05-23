@@ -27,11 +27,10 @@ with a lot of great features compared to the default terminal.
 ### Productivity
 
 * [Sublime Text](https://www.sublimetext.com/) as the main text editor.
-
-+ Install Sublime 3: . dev_setup/ubuntu/install_sublime_text.sh
-+ Package Control: Command Palette (ctrl/cmd + shift + p), Install Package Control
-+ Install packages: Command Palette, Install Package: Predawn, Material Theme, BracketHighlighter, Anaconda
-+ Setting: sudo ./dev_setup/ubuntu/setup_sublime.sh
+    + Install Sublime 3: . dev_setup/ubuntu/install_sublime_text.sh
+    + Package Control: Command Palette (ctrl/cmd + shift + p), Install Package Control
+    + Install packages: Command Palette, Install Package: Predawn, Material Theme, BracketHighlighter, Anaconda
+    + Setting: sudo ./dev_setup/ubuntu/setup_sublime.sh
 
 
 
