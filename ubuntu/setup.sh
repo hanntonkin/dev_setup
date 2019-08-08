@@ -26,7 +26,7 @@ if [ -L '/usr/bin/terminator' ]; then
 
 else
 	sudo apt-get install -y terminator
-	sudo cp -f $WORKSPACE/dotfiles/bashrc ~/.bashrc
+# 	sudo cp -f $WORKSPACE/dotfiles/bashrc ~/.bashrc
 fi
 # write force_color_prompt=yes to .bashrc
 
@@ -73,7 +73,7 @@ if [ -d '/opt/sublime_text' ];
   else
   	echo '-- Install Sublime Text -----'
 	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-	echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+	echo "deb [arch=amd64] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 	sudo apt-get update
 	sudo apt-get install sublime-text
 	cp /usr/share/applications/sublime_text.desktop ~/.local/share/applications/
@@ -100,7 +100,7 @@ if [ -f '/usr/bin/google-chrome' ]; then
 	echo "Mark-my-words installed";
 else
 	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-	sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+	sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/chrome.list'
 	sudo apt-get update
 	sudo apt-get install -y google-chrome-stable
 fi
