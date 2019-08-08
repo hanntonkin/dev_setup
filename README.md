@@ -26,11 +26,7 @@ with a lot of great features compared to the default terminal.
 
 ### Productivity
 
-* [Sublime Text](https://www.sublimetext.com/) as the main text editor.
-    + Install Sublime 3: *sudo ./dev_setup/ubuntu/install_sublime_text.sh*
-    + Package Control: Command Palette (ctrl/cmd + shift + p), Install Package Control
-    + Install packages: Command Palette, Install Package: Predawn, Material Theme, BracketHighlighter, Anaconda, clang-format
-    + Setting: *sudo ./dev_setup/ubuntu/setup_sublime.sh*
+
 
 
 
@@ -61,3 +57,10 @@ Install ROS kinetic
 * MS office
 * Matlab
 * Spectacle for controlling the windows
+
+## [Sublime Text](https://www.sublimetext.com/) as the main text editor.
+
+    + Install Sublime 3: *sudo ./dev_setup/ubuntu/install_sublime_text.sh*
+    + Package Control: Command Palette (ctrl/cmd + shift + p), Install Package Control
+    + Install packages: Command Palette, Install Package: Predawn, Material Theme, BracketHighlighter, Anaconda, clang-format
+    + Setting: *sudo ./dev_setup/ubuntu/setup_sublime.sh*
