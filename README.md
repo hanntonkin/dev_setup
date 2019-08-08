@@ -15,33 +15,25 @@ Most of my work are on Ubuntu 16.04. Install here
 sudo ./dev_setup/ubuntu/setup.sh
 ```
 
-### System tools
+* System tools
 
-#### [Terminator]()
-with a lot of great features compared to the default terminal.
++ [Terminator]() with a lot of great features compared to the default terminal.
 
-#### [Zsh]()
++ [Zsh]()
 
-#### [OpenSSH]()
++ [OpenSSH]()
 
-### Productivity
-
-
++ [Vim]() for fast editing when ssh to.
++ [Mark my works]() for markdown editing
 
 
-
-
-* [Vim]() for fast editing when ssh to.
-* [Mark my works]() for markdown editing
-
-
-### ROS
+* ROS
 
 Install ROS kinetic
 ```
 . dev_setup/ros/install_ros.sh
 ```
-### Git and [github ssh](https://help.github.com/articles/connecting-to-github-with-ssh/)
+* Git and [github ssh](https://help.github.com/articles/connecting-to-github-with-ssh/)
 
 ```
 . dev_setup/ubuntu/setup_git.sh
