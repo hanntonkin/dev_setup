@@ -60,3 +60,4 @@ Install ROS kinetic
 
 * MS office
 * Matlab
+* Spectacle for controlling the windows
