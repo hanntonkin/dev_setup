@@ -40,12 +40,13 @@ sudo ./dev_setup/ubuntu/setup.sh
 ## 2 - MacOS
 
 ```
-./dev_setup/macos_setup.sh
+./dev_setup/osx/macos_setup.sh
 ```
 
-* MS office
-* Matlab
-* Spectacle for controlling the windows
+* Tools: homebrew, iTerm2
+* Productivity: Sublime, Latex, Mendeley, Dropbox, Spectacle, Macdown, MS office
+* Communication: Chrome, Skype, Slack, WhatsApp, MS Outlook
+* Settings: system, finder, autocorrection, iTerm2 (minimal, Lucario)
 
 ## 3 - Editor [Sublime Text](https://www.sublimetext.com/)
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-#Development environment setup on Mac
+# Development environment setup on Mac
 # hann@ieee.org
-# REF
+# TODO
 # 1) make printingout more clean
-#
+# 2) what is missing? word, exel, powerpoint, matlab, keynote?
 
 
 #get admin power
@@ -12,10 +12,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo ""
 echo "DEVELOPMENT TOOLs -------------------------"
-echo ""
-#Homebrew
+# Homebrew
 if [ -d '/usr/local/Homebrew' ]; then
-	echo "Homebrew installed";
+	echo "Homebrew";
 else
 	# echo "Homebrew not found";
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -27,45 +26,27 @@ fi
 
 # https://medium.freecodecamp.org/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38
 # https://medium.com/@mrkdsgn/install-zsh-and-oh-my-zsh-on-osx-10-11-el-capitan-cfaa0ebb97dc
-#iTerm2
+
+# iTerm2
 if [ -d '/Applications/iTerm.app' ]; then
-	echo "iTerm2 installed";
+	echo "iTerm2";
 else
-	# echo "iTerm2 not found";
-	brew cask install iterm2
-fi
+	echo "iTerm2 not found";
+	brew cask install --appdir="/Applications" iterm2
 
+	# theme minimal
+	# Install the Solarized Dark theme for iTerm
+	open "${HOME}/dev_setup/osx/themes/Solarized_Dark.itermcolors"
 
-#zsh
-if [ -L '/usr/local/bin/zsh' ]; then
-	echo "Zsh installed";
-else
-	echo "Zsh not found";
-	brew install zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	# sudo -s 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh
-	brew install tree
-
-
-	#install powerfont
-	git clone https://github.com/powerline/fonts.git --depth=1
-	cd fonts
-	./install.sh
-	cd ..
-	rm -rf fonts
-
-	# bring in my custom dotfile
-	cp -f dotfiles/zshrc ~/.zshrc
-	source ~/.zshrc 
-	# Set iterm profile color to solarized dark
-	# Open ITerm2 > Preferences > Profiles > Text > Change Font and set it to something that has “for Powerline”. I’m choosing “Meslo LG DZ for Powerline” font.
-
-	
+	# Don’t display the annoying prompt when quitting iTerm
+	defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 fi
 
 
 
-#setup github for mac
+
+
+# setup github for mac
 # setup also .gitignore .gitconfig
 
 # Docker
@@ -76,21 +57,39 @@ fi
 
 echo ""
 echo "PRODUCTIVITY ------------------------------"
-echo ""
 
 # Sublime
 if [ -d '/Applications/Sublime Text.app' ]; then
-	echo "Sublime installed";
+	echo "Sublime";
 else
 	echo "Try to install sublime now";
-	# brew cask install --appdir="/Applications" sublime-text
-	# sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+	brew cask install --appdir="/Applications" sublime-text
+	#sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 	# ~/Library/Application Support/Sublime Text 3/Packages/User
 fi
 
-#Latex
+# Microsoft Office
+if [ -d '/Applications/Microsoft Word.app' ]; then
+    echo "Microsoft Word";
+else
+    echo "Microsoft Word not found?";
+fi
+
+if [ -d '/Applications/Microsoft Excel.app' ]; then
+    echo "Microsoft Excel";
+else
+    echo "Microsoft Excel not found?";
+fi
+
+if [ -d '/Applications/Microsoft OneNote.app' ]; then
+    echo "Microsoft OneNote";
+else
+    echo "Microsoft OneNote not found?";
+fi
+
+# Latex
 if [ -d '/Library/TeX' ]; then
-	echo "Latex installed?";
+	echo "Latex";
 else
 	echo "Latex not found?";
 	# next time tryz
@@ -103,64 +102,95 @@ fi
 # Word, excel, powerpoint => mas not working now
 # Matlab
 
-
 #Mendeley
 if [ -d '/Applications/Mendeley Desktop.app' ]; then
-	echo "Mendeley installed";
+	echo "Mendeley";
 else
 	echo "Mendeley not found?";
-	# brew cask install mendeley
+	brew cask install --appdir="/Applications" mendeley
 fi
 
 
 
 #macdown
 if [ -d '/Applications/Macdown.app' ]; then
-	echo "Macdown installed";
+	echo "Macdown";
 else
-	# echo "Macdown not found";
-	brew cask install --appdir="/Applications" macdown
-	
+	echo "Macdown not found?";
+	#brew cask install --appdir="/Applications" macdown
+
 fi
 
 
 #Dropbox
 if [ -d '/Applications/Dropbox.app' ]; then
-	echo "Dropbox installed";
+	echo "Dropbox";
 else
-	echo "Dropbox not found";
-	# brew cask install --appdir="/Applications" dropbox
-	
+	echo "Dropbox not found?";
+	brew cask install --appdir="/Applications" dropbox
+
 fi
+
+
+#Spectacle
+if [ -d '/Applications/Spectacle.app' ]; then
+	echo "Spectacle";
+else
+	echo "Spectacle not found?";
+	brew cask install --appdir="/Applications" spectacle
+
+fi
+
 
 echo ""
 echo "COMMUNICATION -----------------------------"
-echo ""
 
-# brew cask install --appdir="/Applications" slack
-# whatsapp
 
 
 #Chrome
 if [ -d '/Applications/Google Chrome.app' ]; then
-	echo "Chrome installed";
+	echo "Chrome";
 else
-	# echo "Chrome not found";
-	brew cask install google-chrome
+	echo "Chrome not found";
+	brew cask install --appdir="/Applications" google-chrome
 fi
+
+
+if [ -d '/Applications/Microsoft Outlook.app' ]; then
+    echo "Microsoft Outlook";
+else
+    echo "Microsoft Outlook not found?";
+fi
+
+
+
 
 #Skype
 if [ -d '/Applications/Skype.app' ]; then
-	echo "Skype installed";
+	echo "Skype";
 else
 	echo "Skype not found";
 	brew cask install --appdir="/Applications" skype
 fi
 
+#Slack
+if [ -d '/Applications/Slack.app' ]; then
+	echo "Slack";
+else
+	echo "Slack not found";
+	brew cask install --appdir="/Applications" slack
+fi
 
-echo ""
-echo "MEDIA -------------------------------------"
-echo ""
+#WhatsApp
+if [ -d '/Applications/WhatsApp.app' ]; then
+	echo "WhatsApp";
+else
+	echo "WhatsApp not found";
+	brew cask install --appdir="/Applications" whatsapp
+fi
+
+# echo ""
+# echo "MEDIA -------------------------------------"
 
 # VLC
 #brew cask install --appdir="/Applications" gimp
@@ -171,23 +201,25 @@ echo ""
 
 echo ""
 echo "SETTINGS ----------------------------------"
-echo ""
 
 #-------------------------------------------------
 #Base system
 # more here ~/osx.sh — Originally from https://mths.be/osx
 
-# # Disable the sound effects on boot
-# sudo nvram SystemAudioVolume=" "
+echo "Disable the bootup sound"
+sudo nvram SystemAudioVolume=" "
 
-# # Automatically hide and show the Dock
-# defaults write com.apple.dock autohide -bool true
+echo "Automatically hide Dock"
+defaults write com.apple.dock autohide -bool true
 
-# sudo scutil --set HostName "hanns-mac"
-# sudo scutil --set ComputerName "Hann's Mac"
-# sudo scutil --set LocalHostName "hanns-mac"
+echo "Change name to hannsmac"
+sudo scutil --set HostName "jarvis"
+sudo scutil --set ComputerName "Hann's Mac"
+sudo scutil --set LocalHostName "jarvis"
 
-# Set Desktop as the default location for new Finder windows
+
+
+echo "Set Home as the default location"
 # New window target
 # Computer     : `PfCm`
 # Volume       : `PfVo`
@@ -201,6 +233,54 @@ defaults write com.apple.finder NewWindowTarget -string 'PfHm'
 
 
 
+echo "Adjust Autocorrection"                                                          #
 
+# Disable automatic capitalization as it’s annoying when typing code
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# Disable smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Disable automatic period substitution as it’s annoying when typing code
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+
+
+echo "Adjust Finder"
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+
+# Trackpad: enable tap to click for this user and for the login screen
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+
+echo "Setup git"
+git config --global user.email "hann@ieee.org"
+git config --global user.name "hanntonkin"
 
 

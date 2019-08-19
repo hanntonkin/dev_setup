@@ -4,3 +4,4 @@
 * Material Theme
 * BracketHighlighter
 * Anaconda (for python)
+* Clang-format (for C++)
