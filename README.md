@@ -47,6 +47,7 @@ sudo ./dev_setup/ubuntu/setup.sh
 * Productivity: Sublime, Latex, Mendeley, Dropbox, Spectacle, Macdown, MS office
 * Communication: Chrome, Skype, Slack, WhatsApp, MS Outlook
 * Settings: system, finder, autocorrection, iTerm2 (minimal, Lucario)
+* Coding: C++ (brew install eigen, cmake); Python (conda)
 
 ## 3 - Editor [Sublime Text](https://www.sublimetext.com/)
 
