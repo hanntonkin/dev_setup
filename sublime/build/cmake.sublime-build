@@ -1,0 +1,5 @@
+{
+    "shell_cmd": "make -C build",
+    // export CPP_DIR="~/project_directory" => bash_profile
+
+}
