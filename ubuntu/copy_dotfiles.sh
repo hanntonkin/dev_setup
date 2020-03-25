@@ -5,7 +5,7 @@
 #
 
 
-WORKSPACE="/home/$USER/dev_setup"
+WORKSPACE="/home/$USER/dev_setup/ubuntu"
 
 sudo cp -f $WORKSPACE/dotfiles/bashrc ~/.bashrc
 source ~/.bashrc
