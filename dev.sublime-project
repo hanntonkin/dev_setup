@@ -1,0 +1,17 @@
+{
+    "folders":
+    [
+        {
+            "path": "."
+        }
+    ],
+    "build_systems":
+    [
+        {
+            "name": "test",
+            // "shell_cmd": "make -C build",
+            "shell_cmd": "cd ..",
+            "file_regex": "/([^/:]+):(\\d+):(\\d+): "
+        }
+    ]
+}
