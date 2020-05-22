@@ -1,0 +1,19 @@
+FROM osrf/ros:kinetic-desktop
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update && apt-get install -y -q --no-install-recommends apt-utils
+
+RUN apt-get install -y -q vim tmux
+
+RUN apt-get install -y -q python-rosinstall python-rosinstall-generator python-wstool build-essential
+
+RUN apt-get install -y -q python-catkin-tools python-pip
+
+
+RUN rm -rf /var/lib/apt/lists/{apt,dpkg,cache,log} /tmp/* /var/tmp/* # good practice.
+
+RUN echo 'source /opt/ros/$ROS_DISTRO/setup.bash' >> /root/.bashrc
+
+
+

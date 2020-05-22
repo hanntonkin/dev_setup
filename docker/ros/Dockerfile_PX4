@@ -1,0 +1,16 @@
+FROM px4io/px4-dev-ros-kinetic
+
+ENV DEBIAN_FRONTEND noninteractive
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
+RUN apt-get update && apt-get install -y -q --no-install-recommends apt-utils
+
+RUN apt-get install -y -q vim tmux
+
+RUN echo 'source /opt/ros/kinetic/setup.bash' >> /root/.bashrc
+
+WORKDIR  /home/dev
+
+
