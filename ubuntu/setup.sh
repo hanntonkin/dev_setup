@@ -126,14 +126,10 @@ else
 fi
 
 
+if [[ -f "/usr/bin/pip3" ]]; then
+	echo " pip3 installed"
+	# sudo pip3 install pylint
 
-
-
-# remove icon from launcher
-#gsettings get com.canonical.Unity.Launcher favorites
-#['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://firefox.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://libreoffice-impress.desktop', 'application://org.gnome.Software.desktop', 'application://ubuntu-amazon-default.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']
-#gsettings set com.canonical.Unity.Launcher favorites "['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://google-chrome.desktop', 'application://terminator.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']"
-
-
-#alt-tab
-#https://askubuntu.com/questions/818449/ubuntu-16-04-alt-tab-not-working-properly
+else
+	sudo apt install python3-pip
+fi
