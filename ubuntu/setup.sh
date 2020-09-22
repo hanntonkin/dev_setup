@@ -1,77 +1,61 @@
 #!/bin/bash
-#Development environment setup in ubuntu
-# TODO
-# 1) make printingout more clean
-#
-
-
-WORKSPACE="/home/$USER/dev_setup"
+# hann@ieee.org
+# http://hann.work
+# worked for Ubuntu 18.04 and 20.04
 
 #==================================================================
 #      			      FUNCTIONS
 
+WORKSPACE="/home/$USER/dev_setup"
+
+UBUNTU_VERSION="`lsb_release -rs`"
+if [[ "${UBUNTU_VERSION}" != "18.04" ]]; then
+	echo " only worked with Ubuntu 18.04. Press any key to exit"
+	while [ true ] ; do
+		read -t 3 -n 1
+		if [ $? = 0 ] ; then
+			exit ;
+		else
+			echo "."
+		fi
+	done
+fi
+
+if ! [[ -f "$HOME/.allset" ]]; then
+	sudo apt update; sudo apt upgrade
+fi
+
+function install {
+    app=$1; method=$2; opt=$3
+    if [[  -f "/usr/bin/${app}" ]] || [[  -f "/snap/bin/${app}" ]]; then
+        echo " $app installed"
+    else
+        echo " install $app"
+        sudo $method install $app $opt
+    fi
+}
 
 #==================================================================
-#      			      SYSTEM TOOLS
-echo '----- SYSTEM TOOLS -------------------------'
+#      			      MEDIA
+echo '----- MEDIA --------------------------------'
 
-if [ -f '/usr/bin/curl' ]; then
-	echo "Curl installed";
-else
-	sudo apt-get install -y curl
-fi
-
-if [ -L '/usr/bin/terminator' ]; then
-	echo "Terminator installed";
-
-else
-	sudo apt-get install -y terminator
-# 	sudo cp -f $WORKSPACE/dotfiles/bashrc ~/.bashrc
-fi
-# write force_color_prompt=yes to .bashrc
-
-#https://thishosting.rocks/how-to-enable-ssh-on-ubuntu/
-#https://scotch.io/tutorials/how-to-create-an-ssh-shortcut
-sudo apt-get install openssh-server -y
-# setup config file
-
+install vlc snap
+install spotify snap
 
 #==================================================================
-#      			      PRODUCTIVITY
-echo '----- PRODUCTIVITY -------------------------'
+#      			      DEV TOOLS
+echo '----- DEV TOOLS ----------------------------'
 
-if [ -L '/usr/bin/vim' ]; then
-	echo "Vim installed";
-else
-	sudo apt-get install -y vim
-fi
+install git apt
+install gitkraken snap --classic
 
-
-# if [ -f '~/.zshrc']; then
-# 	echo "zsh installed";
-# else
-# 	#sudo apt install -y git-core zsh;
-# 	#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
-# 	# sudo apt install fonts-powerline;
-
-# 	cd ~/.oh-my-zsh/custom/plugins
-# 	git clone https://github.com/zsh-users/zsh-syntax-highlighting
-# 	git clone https://github.com/zsh-users/zsh-autosuggestions
-
-
-# 	# bring in my custom dotfile
-# 	cp -f ~/dev_setup/dotfiles/zshrc_ubuntu ~/.zshrc
-# 	source ~/.zshrc
-# fi
-
-
-
-
+install code snap --classic
+install vim apt
 if [ -d '/opt/sublime_text' ];
   then
-	echo '-- Sublime Text 3 installed -----';
+	echo ' sublime installed';
   else
-  	echo '-- Install Sublime Text -----'
+  	echo ' install sublime'
 	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 	echo "deb [arch=amd64] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 	sudo apt-get update
@@ -80,6 +64,35 @@ if [ -d '/opt/sublime_text' ];
 	#install sublime https://gist.github.com/simonewebdesign/8507139
 	#curl -L git.io/sublimetext | sh
 fi
+
+#==================================================================
+#      			      SYSTEM TOOLS
+echo '----- SYSTEM TOOLS -------------------------'
+
+install terminator apt -y
+install htop apt -y
+
+if [[  -f "/usr/sbin/ifconfig" ]] || [[  -f "/sbin/ifconfig" ]]; then
+	echo " net-tools installed"
+else
+	echo " install net-tools"
+	sudo apt-get install -y net-tools
+fi
+
+if [[  -f "/usr/bin/timeshift" ]]; then
+	echo " timeshift installed"
+else
+	echo " install timeshift"	
+	sudo add-apt-repository -y ppa:teejee2008/ppa
+	sudo apt update
+	sudo apt install timeshift -y
+fi
+
+#==================================================================
+#      			      PRODUCTIVITY
+echo '----- PRODUCTIVITY -------------------------'
+
+
 
 # if [ -f '/usr/bin/mark-my-words' ]; then
 # 	echo "Mark-my-words installed";
@@ -96,57 +109,38 @@ fi
 #      			      COMMUNICATION
 echo '----- COMMUNICATION -------------------------'
 
-if [ -f '/usr/bin/google-chrome' ]; then
-	echo "Mark-my-words installed";
-else
-	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-	sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/chrome.list'
-	sudo apt-get update
-	# sudo apt-get install -y google-chrome-stable
-fi
-
-
-
-
+install chromium snap
+install skype snap --classic
 
 
 #==================================================================
 #      			      COMMUNICATION
 echo '----- SETTINGS -------------------------'
 
+if [[ -f "$HOME/.allset" ]]; then
+	echo " all set"
+else
+	echo " install complete multimedia support"
+	sudo apt install ubuntu-restricted-extras -y
+
+	echo " setup git"
+	cp -f $WORKSPACE/ubuntu/config/git/gitconfig $HOME/.gitconfig
+
+	echo " setup terminator"
+	cp -rf $WORKSPACE/ubuntu/config/terminator $HOME/.config/
+
+	touch $HOME/.allset
+fi
+
+
+
+
+
 # remove icon from launcher
 #gsettings get com.canonical.Unity.Launcher favorites
 #['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://firefox.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://libreoffice-impress.desktop', 'application://org.gnome.Software.desktop', 'application://ubuntu-amazon-default.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']
-gsettings set com.canonical.Unity.Launcher favorites "['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://google-chrome.desktop', 'application://terminator.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']"
-
-sources ~/.bashrc
-
-
-sudo apt autoremove -y
+#gsettings set com.canonical.Unity.Launcher favorites "['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://google-chrome.desktop', 'application://terminator.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']"
 
 
 #alt-tab
 #https://askubuntu.com/questions/818449/ubuntu-16-04-alt-tab-not-working-properly
-
-
-
-#==================================================================
-#      			      REFERENCES
-
-#touch exists.file
-#if [ -f exists.file ] ; then echo "yes" ; else echo "no" ; fi
-
-
-# # Detect the architecture
-# if [[ "$(uname -m)" = "x86_64" ]]; then
-#   ARCHITECTURE="x64"
-# else
-#   ARCHITECTURE="x32"
-# fi
-
-# function print_out()
-# {
-# 	printf "\n$@\n"
-# 	#exit 2
-# }
-
