@@ -10,15 +10,8 @@ WORKSPACE="/home/$USER/dev_setup"
 
 UBUNTU_VERSION="`lsb_release -rs`"
 if [[ "${UBUNTU_VERSION}" != "18.04" ]]; then
-	echo " only worked with Ubuntu 18.04. Press any key to exit"
-	while [ true ] ; do
-		read -t 3 -n 1
-		if [ $? = 0 ] ; then
-			exit ;
-		else
-			echo "."
-		fi
-	done
+	echo " only worked with Ubuntu 18.04"
+	return 1;
 fi
 
 if ! [[ -f "$HOME/.allset" ]]; then
