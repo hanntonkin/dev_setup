@@ -1,0 +1,13 @@
+{
+    "workbench.settings.editor": "json",
+    "workbench.settings.openDefaultSettings": true,
+    "workbench.settings.useSplitJSON": true,
+    "workbench.colorTheme": "Predawn",
+
+    "editor.minimap.enabled": false,
+    // "editor.formatOnSave": true,
+    // "python.pythonPath": "/usr/local/bin/python3",
+    // "python.formatting.provider": "black",
+    // "python.linting.enabled": true,
+    // "python.linting.pylintEnabled": true,
+}
