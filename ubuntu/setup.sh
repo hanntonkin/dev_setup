@@ -111,6 +111,14 @@ else
 fi
 
 
+# sudo apt install texlive-full
+if [[ -f "/usr/bin/pdflatex" ]]; then
+	echo " latex installed"
+else
+	install texlive-full apt -y
+fi
+
+
 #==================================================================
 #      			      COMMUNICATION
 echo '----- COMMUNICATION -------------------------'
@@ -153,5 +161,23 @@ else
 	echo " setup terminator"
 	cp -rf $WORKSPACE/ubuntu/config/terminator $HOME/.config/
 
+	echo " setup vs code"
+	list_extensions="$(code --list-extensions)"
+	if [[ $list_extensions == "" ]]; then
+		echo " install extentions for vs code"
+
+		code --install-extension ms-vscode.cpptools
+		code --install-extension ms-python.python
+		code --install-extension xaver.clang-format
+		code --install-extension ms-vscode.theme-predawnkit
+		code --install-extension james-yu.latex-workshop
+		# code --uninstall-extension ms-vscode.theme-predawnkit
+	fi
+	code --list-extensions
+
+	cp -rf $WORKSPACE/ubuntu/config/Code/settings.json $HOME/.config/Code/User/
+
 	touch $HOME/.allset
 fi
+
+

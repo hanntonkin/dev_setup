@@ -15,5 +15,5 @@
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
     },
-    
+    "latex-workshop.view.pdf.viewer": "tab",
 }
