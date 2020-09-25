@@ -10,4 +10,10 @@
     // "python.formatting.provider": "black",
     // "python.linting.enabled": true,
     // "python.linting.pylintEnabled": true,
+    // "C_Cpp.clang_format_path": "/usr/bin/clang-format",
+    // "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    
 }
