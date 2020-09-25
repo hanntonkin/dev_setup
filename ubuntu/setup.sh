@@ -29,36 +29,6 @@ function install {
 }
 
 #==================================================================
-#      			      MEDIA
-echo '----- MEDIA --------------------------------'
-
-install vlc snap
-install spotify snap
-
-#==================================================================
-#      			      DEV TOOLS
-echo '----- DEV TOOLS ----------------------------'
-
-install git apt
-install gitkraken snap --classic
-
-install code snap --classic
-install vim apt
-if [ -d '/opt/sublime_text' ];
-  then
-	echo ' sublime installed';
-  else
-  	echo ' install sublime'
-	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-	echo "deb [arch=amd64] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-	sudo apt-get update
-	sudo apt-get install sublime-text
-	cp /usr/share/applications/sublime_text.desktop ~/.local/share/applications/
-	#install sublime https://gist.github.com/simonewebdesign/8507139
-	#curl -L git.io/sublimetext | sh
-fi
-
-#==================================================================
 #      			      SYSTEM TOOLS
 echo '----- SYSTEM TOOLS -------------------------'
 
@@ -81,21 +51,64 @@ else
 	sudo apt install timeshift -y
 fi
 
+if [[ -f "/usr/bin/teamviewer" ]]; then
+	echo " teamviewer installed"
+else
+	echo " install teamviewer"
+	curl https://dl.teamviewer.com/download/linux/signature/TeamViewer2017.asc | sudo apt-key add -
+	echo "deb http://linux.teamviewer.com/deb stable main" | sudo tee /etc/apt/sources.list.d/teamviewer.list
+	sudo apt-get update
+	sudo apt install teamviewer -y
+fi
+
+#==================================================================
+#      			      DEV TOOLS
+echo '----- DEV TOOLS ----------------------------'
+
+install git apt -y
+install gitkraken snap --classic
+
+install code snap --classic
+install vim apt -y
+if [ -d '/opt/sublime_text' ];
+  then
+	echo ' sublime installed';
+  else
+  	echo ' install sublime'
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+	echo "deb [arch=amd64] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+	sudo apt-get update
+	sudo apt-get install sublime-text
+	cp /usr/share/applications/sublime_text.desktop ~/.local/share/applications/
+	#install sublime https://gist.github.com/simonewebdesign/8507139
+	#curl -L git.io/sublimetext | sh
+fi
+
+
+
+if [[ -f "/usr/bin/pip3" ]]; then
+	echo " pip3 installed"
+	# sudo pip3 install pylint
+else
+	sudo apt install python3-pip
+fi
+
+install clang-format apt -y
+
 #==================================================================
 #      			      PRODUCTIVITY
 echo '----- PRODUCTIVITY -------------------------'
 
 
-
-# if [ -f '/usr/bin/mark-my-words' ]; then
-# 	echo "Mark-my-words installed";
-# else
-# 	echo "mark-my-words not installed";
-# 	sudo add-apt-repository ppa:voldyman/markmywords
-# 	sudo apt-get update
-# 	sudo apt-get install -y mark-my-words
-# fi
-
+if [[ -f "/usr/bin/dropbox" ]]; then
+	echo " dropbox installed"
+else
+	echo " install dropbox"
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+	echo "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu cosmic main" | sudo tee /etc/apt/sources.list.d/dropbox.list
+	sudo apt update
+	sudo apt install python3-gpg dropbox -y
+fi
 
 
 #==================================================================
@@ -105,6 +118,24 @@ echo '----- COMMUNICATION -------------------------'
 install chromium snap
 install skype snap --classic
 
+
+if [[ -f "/usr/bin/teams" ]]; then
+	echo " teams installed"
+else
+	echo " install teams"
+	curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+	echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" | sudo tee /etc/apt/sources.list.d/teams.list
+	sudo apt update
+	sudo apt install teams
+fi
+
+
+#==================================================================
+#      			      MEDIA
+echo '----- MEDIA --------------------------------'
+
+install vlc snap
+install spotify snap
 
 #==================================================================
 #      			      COMMUNICATION
@@ -123,13 +154,4 @@ else
 	cp -rf $WORKSPACE/ubuntu/config/terminator $HOME/.config/
 
 	touch $HOME/.allset
-fi
-
-
-if [[ -f "/usr/bin/pip3" ]]; then
-	echo " pip3 installed"
-	# sudo pip3 install pylint
-
-else
-	sudo apt install python3-pip
 fi
