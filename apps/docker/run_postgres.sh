@@ -1,17 +1,23 @@
 #!/bin/sh
 
-docker run --rm -it  \
-	--name pg-docker \
-	-e POSTGRES_PASSWORD=docker \
-	-d -p 5432:5432 \
-	-v $HOME/work/volumes/postgres:/var/lib/postgresql/data\
-	-v $HOME/work/mission_generation/test_docker:/var/lib/postgresql/ postgres
+if ! [[ -d "$HOME/docker/volumes/postgres" ]]; then
+	echo " create folder for pg data file:"
+	echo " $HOME/docker/volumes/postgres"
+	mkdir -p $HOME/docker/volumes/postgres
+fi
 
-# sudo docker exec -it pg-docker psql -U postgres -a postgres
 
-# psql -h hostname -d databasename -U username -f {SQL script file name}
-# psql -h localhost -d postgres -U postgres -f backup.sql
-# psql -h localhost -U postgres -W
+postgres_available="$(docker images | grep postgres)"
+if [[ $postgres_available == "" ]]; then
 
-# docker exec -it pg-docker pg_dump -U postgres -p 5432 -d postgres -W -f /var/lib/postgresql/data/backup.sql
-# docker exec -it pg-docker psql -U postgres -p 5432 -d postgres -W -f /var/lib/postgresql/data/backup.sql
+	echo " pull postgres 12.3"
+	docker pull postgres:12.3
+else
+	echo " run postgres"
+	docker run --rm -it  \
+		--name pg-docker \
+		-e POSTGRES_PASSWORD=docker \
+		-d -p 5432:5432 \
+		-v $HOME/docker/volumes/postgres:/var/lib/postgresql/data\
+		postgres:12.3
+fi
