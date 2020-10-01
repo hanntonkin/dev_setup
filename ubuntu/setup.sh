@@ -84,7 +84,17 @@ if [ -d '/opt/sublime_text' ];
 	#curl -L git.io/sublimetext | sh
 fi
 
+if [[ -f "/usr/bin/docker" ]]; then
+	echo " docker installed"
+else
+	echo " install docker ---------"
+	curl -fsSL https://get.docker.com -o get-docker.sh
+	sudo sh get-docker.sh
+	sudo usermod -aG docker ${USER}
+	rm get-docker.sh
+fi
 
+install virtualbox apt -y
 
 if [[ -f "/usr/bin/pip3" ]]; then
 	echo " pip3 installed"
