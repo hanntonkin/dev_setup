@@ -13,11 +13,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo ""
 echo "DEVELOPMENT TOOLs -------------------------"
 # Homebrew
-if [ -d '/usr/local/Homebrew' ]; then
+if [ -d '/opt/homebrew' ]; then
 	echo "Homebrew";
 else
 	# echo "Homebrew not found";
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	# brew install mas
 	# mas not working now ~~ from 13+
 	# find app: brew search
@@ -32,11 +32,11 @@ if [ -d '/Applications/iTerm.app' ]; then
 	echo "iTerm2";
 else
 	echo "iTerm2 not found";
-	brew cask install --appdir="/Applications" iterm2
+	brew install --appdir="/Applications" iterm2
 
 	# theme minimal
 	# Install the Solarized Dark theme for iTerm
-	open "${HOME}/dev_setup/osx/themes/Solarized_Dark.itermcolors"
+	#open "${HOME}/dev_setup/osx/themes/Solarized_Dark.itermcolors"
 
 	# Don’t display the annoying prompt when quitting iTerm
 	defaults write com.googlecode.iterm2 PromptOnQuit -bool false
@@ -63,7 +63,7 @@ if [ -d '/Applications/Sublime Text.app' ]; then
 	echo "Sublime";
 else
 	echo "Try to install sublime now";
-	brew cask install --appdir="/Applications" sublime-text
+	brew install --appdir="/Applications" sublime-text
 	#sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 	# ~/Library/Application Support/Sublime Text 3/Packages/User
 fi
@@ -92,7 +92,7 @@ if [ -d '/Library/TeX' ]; then
 	echo "Latex";
 else
 	echo "Latex not found?";
-	# next time tryz
+	# next time try
 	# brew cask install mactex-no-gui
 fi
 
@@ -107,7 +107,7 @@ if [ -d '/Applications/Mendeley Desktop.app' ]; then
 	echo "Mendeley";
 else
 	echo "Mendeley not found?";
-	brew cask install --appdir="/Applications" mendeley
+	brew install --appdir="/Applications" mendeley
 fi
 
 
@@ -117,7 +117,7 @@ if [ -d '/Applications/Macdown.app' ]; then
 	echo "Macdown";
 else
 	echo "Macdown not found?";
-	#brew cask install --appdir="/Applications" macdown
+	#brew install --appdir="/Applications" macdown
 
 fi
 
@@ -127,18 +127,24 @@ if [ -d '/Applications/Dropbox.app' ]; then
 	echo "Dropbox";
 else
 	echo "Dropbox not found?";
-	brew cask install --appdir="/Applications" dropbox
+	brew install --appdir="/Applications" dropbox
 
 fi
 
 
 #Spectacle
-if [ -d '/Applications/Spectacle.app' ]; then
-	echo "Spectacle";
-else
-	echo "Spectacle not found?";
-	brew cask install --appdir="/Applications" spectacle
+# if [ -d '/Applications/Spectacle.app' ]; then
+# 	echo "Spectacle";
+# else
+# 	echo "Spectacle not found?";
+# 	brew install --appdir="/Applications" spectacle
+# fi
 
+if [ -d '/Applications/Rectangle.app' ]; then
+	echo "rectangle";
+else
+	echo "rectangle not found?";
+	brew install --cask rectangle
 fi
 
 
@@ -152,7 +158,7 @@ if [ -d '/Applications/Google Chrome.app' ]; then
 	echo "Chrome";
 else
 	echo "Chrome not found";
-	brew cask install --appdir="/Applications" google-chrome
+	brew install --appdir="/Applications" google-chrome
 fi
 
 
@@ -170,7 +176,7 @@ if [ -d '/Applications/Skype.app' ]; then
 	echo "Skype";
 else
 	echo "Skype not found";
-	brew cask install --appdir="/Applications" skype
+	#brew install --appdir="/Applications" skype
 fi
 
 #Slack
@@ -178,7 +184,7 @@ if [ -d '/Applications/Slack.app' ]; then
 	echo "Slack";
 else
 	echo "Slack not found";
-	brew cask install --appdir="/Applications" slack
+	#brew install --appdir="/Applications" slack
 fi
 
 #WhatsApp
@@ -186,7 +192,7 @@ if [ -d '/Applications/WhatsApp.app' ]; then
 	echo "WhatsApp";
 else
 	echo "WhatsApp not found";
-	brew cask install --appdir="/Applications" whatsapp
+	brew install --appdir="/Applications" whatsapp
 fi
 
 # echo ""
@@ -212,10 +218,10 @@ sudo nvram SystemAudioVolume=" "
 echo "Automatically hide Dock"
 defaults write com.apple.dock autohide -bool true
 
-echo "Change name to hannsmac"
-sudo scutil --set HostName "jarvis"
+echo "Change name to tonkin"
+sudo scutil --set HostName "tonkin"
 sudo scutil --set ComputerName "Hann's Mac"
-sudo scutil --set LocalHostName "jarvis"
+sudo scutil --set LocalHostName "tonkin"
 
 
 
