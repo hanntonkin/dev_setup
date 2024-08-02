@@ -24,7 +24,7 @@ if [[ $list_extensions == "" ]]; then
 	code --install-extension xaver.clang-format
 	code --install-extension ms-python.python
 	code --install-extension ms-vscode.theme-predawnkit
-	code --install-extension ms-vscode-remote.remote-containers
+	code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 	#code --install-extension james-yu.latex-workshop
 	#code --uninstall-extension ms-vscode.theme-predawnkit
 fi
